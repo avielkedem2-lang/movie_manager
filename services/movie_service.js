@@ -106,3 +106,21 @@ export async function sortByGenre(genre) {
 }
 
 
+
+
+export async function showStatistic(params) {
+    try{
+        const movies = await readFile()
+        return {
+            amountMovie: movies.length,
+            average: movies.reduce((acc, movie) => {return acc += movie.rating},0) / movies.length,
+            highestMovie: movies.sort((a, b) => {return b.rating - a.rating})[0].title
+        }
+    }catch (error){
+        console.error(error)
+    }
+}
+
+
+
+

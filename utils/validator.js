@@ -1,5 +1,5 @@
 import {createNewMovie, getMovieById, deleteMovie, updateRate, 
-    searchByName, searchGenre} from "../services/movie_service.js"
+    searchByName, sortByGenre, showStatistic} from "../services/movie_service.js"
 import rl from "readline-sync"
 import fs from "fs/promises"
 
@@ -27,8 +27,6 @@ export function bodyValidation(){
         console.log("The title or the ");
         
     }
-
-
 }
 
 
@@ -136,7 +134,7 @@ export function searchTitle(){
 export function searchGenre(){
     const genre = rl.question("Enter genre: ")
     if (genre) {
-        const theMovie = searchGenre(genre)
+        const theMovie = sortByGenre(genre.toLowerCase())
         .then((val) => {
             if (val){
                 console.log(val) 
@@ -146,4 +144,13 @@ export function searchGenre(){
     })
     .catch((e) => {console.log(e);
     })}
+}
+
+
+
+export function theStatistic(){
+    const theMovie = showStatistic()
+    .then((val) => { console.log(val)})
+    .catch((e) => {console.log(e);
+    })
 }
