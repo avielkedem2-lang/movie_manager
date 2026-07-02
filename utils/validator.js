@@ -4,6 +4,25 @@ import rl from "readline-sync"
 import fs from "fs/promises"
 
 
+export function displayMenu() {
+    console.log("");
+    console.log("");
+    console.log("1. Show all movies");
+    console.log("2. Show by ID");
+    console.log("3. Create new movie");
+    console.log("4. Delete movie");
+    console.log("5. Update rate");
+    console.log("6. Search by name");
+    console.log("7. Sort by genre");
+    console.log("8. Show statistics");
+    console.log("0. Exit");
+    console.log("─".repeat(42));
+    
+    
+}
+
+
+
 export function bodyValidation(){
     const title = rl.question("Enter a title: ")
     const genre = rl.question("Enter a genre: ")
@@ -59,7 +78,7 @@ function checkRating(rating){
 
 export function getMovie(){
     const id = rl.questionInt("Enter id for the search: ")
-    const theMovie = getMovieById(id)
+    return getMovieById(id)
     .then((val) => {
         if (val){
             console.log(val) 
@@ -76,10 +95,10 @@ export function getMovie(){
 
 export function deleteTheMovie(){
     const id = rl.questionInt("Enter id: ")
-    const theMovie = getMovieById(id)
+    return getMovieById(id)
     .then((val) => {
         if (val){
-            deleteMovie(id) 
+            return deleteMovie(id) 
         }else {
             console.log(`There is no such thing id=${id}`)
         }
@@ -97,10 +116,10 @@ export function updateRateById(){
     const newRate = rl.questionFloat("Enter new rate: ")
     if (checkRating(newRate)){
     const id = rl.questionInt("Enter id: ")
-    const theMovie = getMovieById(id)
+    return getMovieById(id)
     .then((val) => {
         if (val){
-            updateRate(id, newRate) 
+            return updateRate(id, newRate) 
         }else {
             console.log(`There is no such thing id=${id}`)
         }
@@ -114,7 +133,7 @@ export function updateRateById(){
 export function searchTitle(){
     const title = rl.question("Enter the title: ")
     if (title){
-        const theMovie = searchByName(title.toLowerCase())
+        return searchByName(title.toLowerCase())
         .then((val) => {
             if (val){
                 console.log(val) 
@@ -134,7 +153,7 @@ export function searchTitle(){
 export function searchGenre(){
     const genre = rl.question("Enter genre: ")
     if (genre) {
-        const theMovie = sortByGenre(genre.toLowerCase())
+        return sortByGenre(genre.toLowerCase())
         .then((val) => {
             if (val){
                 console.log(val) 
@@ -149,7 +168,7 @@ export function searchGenre(){
 
 
 export function theStatistic(){
-    const theMovie = showStatistic()
+    return showStatistic()
     .then((val) => { console.log(val)})
     .catch((e) => {console.log(e);
     })

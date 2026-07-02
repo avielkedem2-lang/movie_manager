@@ -85,7 +85,7 @@ export async function updateRate(id, newRate) {
 export async function searchByName(title) {
     try{
         const movies = await readFile()
-        const theMovie = movies.find((movie) => {return movie.title === title})
+        const theMovie = movies.find((movie) => {return movie.title.toLowerCase() === title})
         return theMovie
     }catch (error){
         console.error(error)
@@ -98,7 +98,7 @@ export async function searchByName(title) {
 export async function sortByGenre(genre) {
     try{
         const movies = await readFile()
-        const moviesByGenre = movies.filter((movie) => {return movie.genre == genre})
+        const moviesByGenre = movies.filter((movie) => {return movie.genre.toLowerCase() == genre})
         return moviesByGenre 
     }catch (error){
         console.error(error)

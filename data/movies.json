@@ -1,9 +1,16 @@
 [
   {
-    "id": 2,
-    "title": "avengers",
-    "genre": "fite",
-    "year": 2010,
-    "rating": 9.1
+    "id": 5,
+    "title": "Harry potter",
+    "genre": "fantasy",
+    "year": 1999,
+    "rating": 7.8
+  },
+  {
+    "id": 4,
+    "title": "brooklyn 99",
+    "genre": "comedy",
+    "year": 2008,
+    "rating": 8.9
   }
 ]
