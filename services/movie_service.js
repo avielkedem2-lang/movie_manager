@@ -52,3 +52,18 @@ export async function getMovieById(id) {
 
 
 
+
+
+export async function deleteMovie(id) {
+    try {
+        const movies = await readFile()
+        const theMovie = movies.findIndex((movie) => {return movie.id === id})
+        movies.splice(theMovie, 1)
+        writeFile(movies)
+    }catch (error) {
+        console.error(error)
+    }
+}
+
+
+

@@ -1,4 +1,4 @@
-import {createNewMovie, getMovieById} from "../services/movie_service.js"
+import {createNewMovie, getMovieById, deleteMovie} from "../services/movie_service.js"
 import rl from "readline-sync"
 import fs from "fs/promises"
 
@@ -70,4 +70,22 @@ export function getMovie(){
     })
     .catch((e) => {console.log(e);
     })
+}
+
+
+
+
+export function deleteTheMovie(){
+    const id = rl.questionInt("Enter id: ")
+    const theMovie = getMovieById(id)
+    .then((val) => {
+        if (val){
+            deleteMovie(id) 
+        }else {
+            console.log(`There is no such thing id=${id}`)
+        }
+    })
+    .catch((e) => {console.log(e);
+    })
+
 }

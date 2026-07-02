@@ -1,12 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "titanic",
-    "genre": "romen",
-    "year": 1999,
-    "rating": 5.4
-  },
-  {
     "id": 2,
     "title": "avengers",
     "genre": "fite",
