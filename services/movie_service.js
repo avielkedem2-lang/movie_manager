@@ -39,4 +39,16 @@ export async function createNewMovie(body) {
 
 
 
+export async function getMovieById(id) {
+    try{
+        const movies = await readFile()
+        const theMovie = movies.find((movie) => {return movie.id === id})
+        return theMovie
+    }catch (error){
+        console.error(error)
+    }
+}
+
+
+
 

@@ -1,6 +1,6 @@
-import {createNewMovie} from "../services/movie_service.js"
+import {createNewMovie, getMovieById} from "../services/movie_service.js"
 import rl from "readline-sync"
-
+import fs from "fs/promises"
 
 
 export function bodyValidation(){
@@ -57,3 +57,17 @@ function checkRating(rating){
 }
 
 
+
+export function getMovie(){
+    const id = rl.questionInt("Enter id for the search: ")
+    const theMovie = getMovieById(id)
+    .then((val) => {
+        if (val){
+            console.log(val) 
+        }else {
+            console.log(`There is no such thing id=${id}`)
+        }
+    })
+    .catch((e) => {console.log(e);
+    })
+}

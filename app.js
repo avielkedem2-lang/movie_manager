@@ -1,5 +1,7 @@
-// import {showAllMovies, createNewMovie} from "./services/movie_service.js"
-import {bodyValidation} from "./utils/validator.js"
+import {showAllMovies} from "./services/movie_service.js"
+import {bodyValidation, getMovie} from "./utils/validator.js"
+
+// bodyValidation()
 
 
-bodyValidation()
+getMovie()
