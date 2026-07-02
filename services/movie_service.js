@@ -94,3 +94,15 @@ export async function searchByName(title) {
 
 
 
+
+export async function sortByGenre(genre) {
+    try{
+        const movies = await readFile()
+        const moviesByGenre = movies.filter((movie) => {return movie.genre == genre})
+        return moviesByGenre 
+    }catch (error){
+        console.error(error)
+    }
+}
+
+
