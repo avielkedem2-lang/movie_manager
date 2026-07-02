@@ -67,3 +67,17 @@ export async function deleteMovie(id) {
 
 
 
+
+export async function updateRate(id, newRate) {
+    try{
+        const movies = await readFile()
+        const theMovie = movies.findIndex((movie) => {return movie.id === id})
+        movies[theMovie].rating = newRate
+        writeFile(movies)
+    }catch (error){
+        console.error(error)
+    }
+}
+
+
+

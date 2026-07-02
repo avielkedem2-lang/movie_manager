@@ -1,11 +1,14 @@
-import {showAllMovies, deleteMovie} from "./services/movie_service.js"
-import {bodyValidation, getMovie, deleteTheMovie} from "./utils/validator.js"
+import {showAllMovies, updateRate} from "./services/movie_service.js"
+import {bodyValidation, getMovie, deleteTheMovie, updateRateById} from "./utils/validator.js"
 
 // bodyValidation()
 
 // getMovie()
 
 
-deleteTheMovie()
+// deleteTheMovie()
 
 // deleteMovie(1)
+
+// updateRate(2, 9.5)
+// updateRateById()
