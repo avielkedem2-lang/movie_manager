@@ -5,11 +5,38 @@ export async function showAllMovies(){
     try{
         const movies = await readFile()
         movies.forEach(movie => {
-           console.log(movie.name);  
+           console.log(movie.title);  
         });
     }catch (error)  {
         console.error(error); 
     }
 }
+
+
+
+
+export async function createNewMovie(body) {
+    try{
+        const movies = await readFile()
+        let max = 0
+        if (movies.length > 0){
+        max = await movies.sort((a, b) => b.id - a.id)[0].id
+        } 
+        const newMovie = {
+            id: max += 1,
+            title: body.title,
+            genre: body.genre,
+            year: body.year,
+            rating: body.rating
+        }
+        movies.push(newMovie)
+        writeFile(movies)        
+    }catch (error){
+        console.error(error);
+    }
+    
+}
+
+
 
 
