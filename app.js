@@ -1,5 +1,5 @@
 import {showAllMovies, updateRate} from "./services/movie_service.js"
-import {bodyValidation, getMovie, deleteTheMovie, updateRateById} from "./utils/validator.js"
+import {bodyValidation, getMovie, deleteTheMovie, updateRateById, searchTitle} from "./utils/validator.js"
 
 // bodyValidation()
 
@@ -12,3 +12,5 @@ import {bodyValidation, getMovie, deleteTheMovie, updateRateById} from "./utils/
 
 // updateRate(2, 9.5)
 // updateRateById()
+
+searchTitle()

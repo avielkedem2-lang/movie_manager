@@ -81,3 +81,16 @@ export async function updateRate(id, newRate) {
 
 
 
+
+export async function searchByName(title) {
+    try{
+        const movies = await readFile()
+        const theMovie = movies.find((movie) => {return movie.title === title})
+        return theMovie
+    }catch (error){
+        console.error(error)
+    }
+}
+
+
+

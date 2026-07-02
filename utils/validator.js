@@ -1,4 +1,4 @@
-import {createNewMovie, getMovieById, deleteMovie, updateRate} from "../services/movie_service.js"
+import {createNewMovie, getMovieById, deleteMovie, updateRate, searchByName} from "../services/movie_service.js"
 import rl from "readline-sync"
 import fs from "fs/promises"
 
@@ -108,4 +108,22 @@ export function updateRateById(){
     })
     .catch((e) => {console.log(e);
     })
-    }}
+}}
+
+
+
+export function searchTitle(){
+    const title = rl.question("Enter the title: ")
+    if (title){
+        const theMovie = searchByName(title.toLowerCase())
+    .then((val) => {
+        if (val){
+            console.log(val) 
+        }else {
+            console.log(`There is no such thing title=${title}`)
+        }
+    })
+    .catch((e) => {console.log(e);
+    })}
+
+}
